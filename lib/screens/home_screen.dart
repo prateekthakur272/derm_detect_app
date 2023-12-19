@@ -1,5 +1,6 @@
 import 'package:derm_detect_app/constants.dart';
 import 'package:derm_detect_app/screens/about_screen.dart';
+import 'package:derm_detect_app/screens/checkup_screen.dart';
 import 'package:derm_detect_app/screens/contact_screen.dart';
 import 'package:derm_detect_app/screens/intro_screen.dart';
 import 'package:derm_detect_app/screens/team_screen.dart';
@@ -32,23 +33,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: false,
         actions: [
-          TextButton(onPressed: () {
-            setState(() {
-              pageIndex = 1;
-            });
-          }, child: const Text('About')),
+          TextButton(
+              onPressed: () {
+                setState(() {
+                  pageIndex = 1;
+                });
+              },
+              child: const Text('About')),
           space16,
-          TextButton(onPressed: () {
-            setState(() {
-              pageIndex = 2;
-            });
-          }, child: const Text('Team')),
+          TextButton(
+              onPressed: () {
+                setState(() {
+                  pageIndex = 2;
+                });
+              },
+              child: const Text('Team')),
           space16,
-          TextButton(onPressed: () {
-            setState(() {
-              pageIndex = 3;
-            });
-          }, child: const Text('Contact')),
+          TextButton(
+              onPressed: () {
+                setState(() {
+                  pageIndex = 3;
+                });
+              },
+              child: const Text('Contact')),
           space16,
           FilledButton(
               onPressed: () {
@@ -59,9 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Text('LOGIN'))
         ],
       ),
-      body: IndexedStack(
-          index: pageIndex,
-          children: const [IntroScreen(), AboutScreen(), TeamScreen(), ContactScreen()]),
+      body: IndexedStack(index: pageIndex, children: const [IntroScreen(),AboutScreen(),TeamScreen(),ContactScreen(),CheckUpScreen()]),
     );
   }
 }

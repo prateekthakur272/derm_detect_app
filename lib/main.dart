@@ -41,6 +41,7 @@ class App extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           unselectedLabelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
+        dividerTheme:const DividerThemeData(thickness: 1)
       ),
     );
   }

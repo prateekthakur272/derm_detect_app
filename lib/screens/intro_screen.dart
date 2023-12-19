@@ -1,4 +1,5 @@
 import 'package:derm_detect_app/constants.dart';
+import 'package:derm_detect_app/screens/checkup_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -28,7 +29,9 @@ class IntroScreen extends StatelessWidget {
             style: TextStyle(fontSize: 28, color: onPrimaryColor),
           ),
           space32,
-          FilledButton(onPressed: () {}, child: const Text('QUICK CHECK-UP'))
+          FilledButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const CheckUpScreen()));
+          }, child: const Text('QUICK CHECK-UP'))
         ],
       )
     ]);
