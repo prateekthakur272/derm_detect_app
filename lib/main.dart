@@ -1,5 +1,5 @@
 import 'package:derm_detect_app/constants.dart';
-import 'package:derm_detect_app/screens/intro_screen.dart';
+import 'package:derm_detect_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
-      home: const IntroScreen(),
+      home: const HomeScreen(),
       theme: ThemeData(
           colorScheme: ColorScheme(
               brightness: Brightness.light,
