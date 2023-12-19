@@ -16,6 +16,7 @@ const space24 = SizedBox.square(dimension:24);
 const space32 = SizedBox.square(dimension:32);
 const space16 = SizedBox.square(dimension:16);
 const space40 = SizedBox.square(dimension:40);
+const space8 = SizedBox.square(dimension:8);
 
 // Urls
 const apiUrl = 'http://127.0.0.1:8000/api/';

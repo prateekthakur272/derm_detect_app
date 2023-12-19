@@ -1,6 +1,7 @@
 import 'package:derm_detect_app/constants.dart';
 import 'package:derm_detect_app/screens/about_screen.dart';
 import 'package:derm_detect_app/screens/intro_screen.dart';
+import 'package:derm_detect_app/screens/team_screen.dart';
 import 'package:derm_detect_app/widgets/login_register.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +30,8 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: const IndexedStack(
-        index: 1,
-        children: [IntroScreen(),AboutScreen()]
+        index: 2,
+        children: [IntroScreen(),AboutScreen(),TeamScreen()]
       ),
     );
   }
