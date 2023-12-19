@@ -1,4 +1,5 @@
 import 'package:derm_detect_app/constants.dart';
+import 'package:derm_detect_app/widgets/login_register.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -20,7 +21,9 @@ class IntroScreen extends StatelessWidget {
           space16,
           TextButton(onPressed: (){}, child: const Text('Contact')),
           space16,
-          FilledButton(onPressed: (){}, child: const Text('LOGIN'))
+          FilledButton(onPressed: (){
+            showDialog(context: context, builder: (context)=> const LoginRegisterDialog());
+          }, child: const Text('LOGIN'))
         ],
       ),
       body: Stack(

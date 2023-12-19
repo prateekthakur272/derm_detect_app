@@ -35,7 +35,12 @@ class App extends StatelessWidget {
           style: TextButton.styleFrom(
             foregroundColor: onPrimaryColor,
           )
-        )
+        ),
+        tabBarTheme: const TabBarTheme(
+          labelColor: primaryColor,
+          labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
