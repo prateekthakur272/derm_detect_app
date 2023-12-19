@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:derm_detect_app/api.dart';
 import 'package:derm_detect_app/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -49,8 +51,8 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final email = TextEditingController();
-    final password = TextEditingController();
+    final emailController = TextEditingController(text: 'your_email@gmail.com');
+    final passwordController = TextEditingController(text: 'your_password');
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -60,22 +62,33 @@ class Login extends StatelessWidget {
         ),
         space16,
         TextField(
-          controller: email,
+          controller: emailController,
           decoration: const InputDecoration(
               hintText: 'Email address', prefixIcon: Icon(Icons.email)),
         ),
         space16,
         TextField(
-          controller: password,
+          controller: passwordController,
           decoration: const InputDecoration(
               hintText: 'Password', prefixIcon: Icon(Icons.password)),
         ),
         space16,
         FilledButton(
-          onPressed: () {},
+          onPressed: () async {
+            final email = emailController.text.trim();
+            final password = passwordController.text.trim();
+            if (email.isNotEmpty && password.isNotEmpty) {
+              login(email, password).then((value) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Logged in as $email'),backgroundColor: Colors.green.shade400,));
+                Navigator.pop(context);
+              }).onError((error, stackTrace) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text((error as HttpException).message),backgroundColor: Colors.red.shade400,));
+              });
+            }
+          },
           style: FilledButton.styleFrom(
               backgroundColor: primaryColor, foregroundColor: onPrimaryColor),
-          child:const Text('Login'),
+          child: const Text('Login'),
         )
       ],
     );
@@ -87,8 +100,8 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final email = TextEditingController();
-    final password = TextEditingController();
+    final emailController = TextEditingController(text: 'your_email2@gmail.com');
+    final passwordController = TextEditingController(text: 'your_password');
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -98,22 +111,33 @@ class Register extends StatelessWidget {
         ),
         space16,
         TextField(
-          controller: email,
+          controller: emailController,
           decoration: const InputDecoration(
               hintText: 'Email address', prefixIcon: Icon(Icons.email)),
         ),
         space16,
         TextField(
-          controller: password,
+          controller: passwordController,
           decoration: const InputDecoration(
               hintText: 'Password', prefixIcon: Icon(Icons.password)),
         ),
         space16,
         FilledButton(
-          onPressed: () {},
+          onPressed: () async {
+            final email = emailController.text.trim();
+            final password = passwordController.text.trim();
+            if (email.isNotEmpty && password.isNotEmpty) {
+              register(email, password).then((value) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Account created for email $email'),backgroundColor: Colors.green.shade400,));
+                Navigator.pop(context);
+              }).onError((error, stackTrace) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text((error as HttpException).message),backgroundColor: Colors.red.shade400,));
+              });
+            }
+          },
           style: FilledButton.styleFrom(
               backgroundColor: primaryColor, foregroundColor: onPrimaryColor),
-          child:const Text('Create Account'),
+          child: const Text('Create Account'),
         )
       ],
     );
