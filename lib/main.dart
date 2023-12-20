@@ -12,6 +12,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LandingScreen(),
       theme: ThemeData(
+        useMaterial3: false,
           colorScheme: ColorScheme(
               brightness: Brightness.light,
               primary: primaryColor,
