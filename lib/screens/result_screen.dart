@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:derm_detect_app/constants.dart';
+import 'package:derm_detect_app/widgets/about_cancer.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +47,16 @@ class _ResultScreenState extends State<ResultScreen> {
                   const Divider(),
                   Text('Type: ${widget.result['result']}'),
                   Text('Accuracy: ${widget.result['accuracy']}'),
+                  space16,
+                  FilledButton(
+              onPressed: () {
+                showDialog(context: context, builder: (context)=> AboutCancer(type: widget.result['result']));
+              },
+              style: const ButtonStyle(
+                  foregroundColor: MaterialStatePropertyAll(onPrimaryColor),
+                  backgroundColor: MaterialStatePropertyAll(primaryColor)),
+              child: Text('About ${widget.result['result']}'),
+            )
                 ],
               )
             ],

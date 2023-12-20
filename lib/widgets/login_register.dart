@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:derm_detect_app/api.dart';
 import 'package:derm_detect_app/constants.dart';
+import 'package:derm_detect_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginRegisterDialog extends StatefulWidget {
@@ -51,8 +52,8 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController(text: 'your_email@gmail.com');
-    final passwordController = TextEditingController(text: 'your_password');
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -81,6 +82,7 @@ class Login extends StatelessWidget {
               login(email, password).then((value) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Logged in as $email'),backgroundColor: Colors.green.shade400,));
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen(email: email,)));
               }).onError((error, stackTrace) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text((error as HttpException).message),backgroundColor: Colors.red.shade400,));
               });
@@ -100,8 +102,8 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController(text: 'your_email2@gmail.com');
-    final passwordController = TextEditingController(text: 'your_password');
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
