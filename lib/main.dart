@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
+      debugShowCheckedModeBanner: false,
       home: const LandingScreen(),
       theme: ThemeData(
           colorScheme: ColorScheme(
